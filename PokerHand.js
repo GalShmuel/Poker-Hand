@@ -236,13 +236,7 @@ function displayAllPlayers() {
     const winners = findWinners(playerHands);
     const winnerNames = winners.map(w => w.name);
     
-    // Update scores
-    winners.forEach(winner => {
-        playerScores[winner.name] = (playerScores[winner.name] || 0) + 1;
-    });
-    
-    // Update scoreboard
-    updateScoreboard();
+    // Note: Scores will be updated after winner announcement
     
     // Store player elements for later winner highlighting
     const playerElements = [];
@@ -329,6 +323,17 @@ function displayAllPlayers() {
         // Animate in
         setTimeout(() => {
             winnerAnnouncement.classList.add('show');
+            
+            // Update scores and scoreboard after winner announcement appears
+            setTimeout(() => {
+                // Update scores
+                winners.forEach(winner => {
+                    playerScores[winner.name] = (playerScores[winner.name] || 0) + 1;
+                });
+                
+                // Update scoreboard
+                updateScoreboard();
+            }, 300); // Wait a bit after announcement appears
             
             // Re-enable button after winner announcement animation completes
             setTimeout(() => {
