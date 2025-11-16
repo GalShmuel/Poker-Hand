@@ -535,6 +535,642 @@ body {
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
 }
 
+/* Mobile Portrait - Vertical Stacked Layout */
+@media (max-width: 768px) and (orientation: portrait) {
+    body {
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .room-background {
+        padding: 10px;
+        min-height: 100vh;
+        align-items: flex-start;
+    }
+    
+    .poker-table {
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        position: relative;
+    }
+    
+    .table-wood-trim {
+        display: none;
+    }
+    
+    .table-felt {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        border-radius: 15px;
+        padding: 15px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        position: relative;
+        background: linear-gradient(135deg, #0d5016 0%, #1a7a2e 50%, #0d5016 100%);
+    }
+    
+    .table-felt::before {
+        display: none;
+    }
+    
+    .table-title {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    /* Scoreboard - Mobile: Top of screen, horizontal layout */
+    .scoreboard {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 35%;
+        margin-bottom: 10px;
+        justify-items: center;
+        padding: 10px 15px;
+        border-radius: 10px;
+        order: 1;
+    }
+    
+    .scoreboard-title {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+    }
+    
+    .scoreboard-content {
+        display: grid;
+        grid-template-rows: repeat(auto-fit, minmax(30px, 1fr));
+        gap: 8px;
+        justify-content: space-between;
+    }
+    
+    .score-item {
+        padding: 8px 10px;
+        font-size: 0.85em;
+        flex-direction: row;
+        text-align: center;
+        gap: 4px;
+    }
+    
+    .score-item .rank {
+        font-size: 0.9em;
+    }
+    
+    .score-item .player-name-score {
+        font-size: 0.9em;
+        margin: 0;
+    }
+    
+    .score-item .wins-count {
+        font-size: 0.85em;
+    }
+    
+    /* Mobile: Create player groups that combine cards and info */
+    .table-felt {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Cards on table - Mobile: Use contents to make children direct children of table-felt */
+    .cards-on-table {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        display: contents;
+        top: auto !important;
+        left: auto !important;
+        pointer-events: auto !important;
+    }
+    
+    .cards-on-table .player-cards-container {
+        position: relative !important;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        margin-bottom: 10px;
+        padding: 10px 0;
+    }
+    
+    /* Player sections - Mobile: Use contents to make children direct children of table-felt */
+    .players-container {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        display: contents;
+        top: auto !important;
+        left: auto !important;
+        pointer-events: auto !important;
+    }
+    
+    .player-section {
+        position: relative !important;
+        width: 100%;
+        padding: 15px;
+        margin: 0 0 20px 0;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    /* Add spacing between player groups */
+    .cards-on-table .player-cards-container.position-top + .player-section.position-top {
+        margin-top: 0;
+    }
+    
+    .cards-on-table .player-cards-container.position-bottom + .player-section.position-bottom {
+        margin-top: 0;
+    }
+    
+    .cards-on-table .player-cards-container.position-left + .player-section.position-left {
+        margin-top: 0;
+    }
+    
+    .cards-on-table .player-cards-container.position-right + .player-section.position-right {
+        margin-top: 0;
+    }
+    
+    .player-section.position-top,
+    .player-section.position-bottom,
+    .player-section.position-left,
+    .player-section.position-right {
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+    }
+    
+    .player-name {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+    
+    .player-result {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+    
+    /* Match card container order with player section order - Mobile layout */
+    /* Each player: cards first, then info */
+    .cards-on-table .player-cards-container.position-top {
+        order: 1;
+    }
+    
+    .player-section.position-top {
+        order: 2;
+    }
+    
+    .cards-on-table .player-cards-container.position-bottom {
+        order: 3;
+    }
+    
+    .player-section.position-bottom {
+        order: 4;
+    }
+    
+    .cards-on-table .player-cards-container.position-left {
+        order: 5;
+    }
+    
+    .player-section.position-left {
+        order: 6;
+    }
+    
+    .cards-on-table .player-cards-container.position-right {
+        order: 7;
+    }
+    
+    .player-section.position-right {
+        order: 8;
+    }
+    
+    /* Deal button order */
+    .deal-button {
+        order: 9;
+    }
+    
+    /* Cards - Mobile: Smaller but readable */
+    .card {
+        width: 50px;
+        height: 70px;
+        padding: 4px;
+    }
+    
+    .card-value {
+        font-size: 12px;
+        margin-bottom: 1px;
+    }
+    
+    .card-suit-small {
+        font-size: 10px;
+    }
+    
+    .card-suit-large {
+        font-size: 32px;
+    }
+    
+    /* Buttons - Mobile: Full width, larger touch targets */
+    .deal-button,
+    .start-button {
+        width: 56%;
+        border-radius: 12px;
+        padding: 15px 20px;
+        font-size: 16px;
+        margin-top: 10px;
+        min-height: 50px;
+    }
+    
+    /* Player Names Input - Mobile: Full screen overlay */
+    .player-names-input {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100vh;
+        transform: none;
+        border-radius: 0;
+        padding: 20px;
+        z-index: 1000;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .input-title {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    
+    .names-form {
+        gap: 15px;
+        max-width: 400px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    .name-input-group input,
+    .num-players-select {
+        padding: 12px 15px;
+        font-size: 16px;
+        min-height: 44px;
+    }
+    
+    /* Winner announcement - Mobile: Smaller, positioned better */
+    .winner-announcement {
+        font-size: 1.5em;
+        padding: 15px 25px;
+        letter-spacing: 2px;
+        max-width: 90vw;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.3;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    
+    .winner-announcement.show {
+        transform: translate(-50%, -50%) scale(1);
+        text-wrap-mode: wrap;
+        width: 100%;
+    }
+    
+    /* Disable hover effects on mobile */
+    .card:hover {
+        transform: none;
+        box-shadow: 
+            0 4px 12px rgba(0, 0, 0, 0.5),
+            0 0 2px rgba(0, 0, 0, 0.3),
+            inset 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    
+    .deal-button:hover,
+    .start-button:hover {
+        transform: none;
+    }
+}
+
+/* Mobile Landscape - Keep Table Design */
+@media (max-width: 768px) and (orientation: landscape) {
+    body {
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .room-background {
+        padding: 10px;
+        min-height: 100vh;
+        align-items: center;
+    }
+    
+    .poker-table {
+        width: 95%;
+        max-width: 100%;
+        min-height: 500px;
+        position: relative;
+    }
+    
+    .table-wood-trim {
+        display: block;
+    }
+    
+    .table-felt {
+        width: calc(100% - 40px);
+        height: calc(100% - 40px);
+        min-height: 450px;
+        border-radius: 50% / 30%;
+        padding: 40px 30px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        position: relative;
+    }
+    
+    .table-felt::before {
+        display: block;
+    }
+    
+    .table-title {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+    
+    /* Scoreboard - Landscape: Smaller, positioned better */
+    .scoreboard {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        min-width: 200px;
+        max-width: 80%;
+        padding: 8px 15px;
+        margin-bottom: 0;
+        order: 0;
+    }
+    
+    .scoreboard-title {
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+    
+    .scoreboard-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+    }
+    
+    .score-item {
+        padding: 6px 8px;
+        font-size: 0.75em;
+        flex-direction: column;
+        text-align: center;
+        gap: 3px;
+    }
+    
+    /* Cards on table - Landscape: Keep table positions but smaller */
+    .cards-on-table {
+        position: absolute !important;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: block;
+    }
+    
+    .cards-on-table .player-cards-container {
+        position: absolute !important;
+        display: flex;
+        gap: 5px;
+        transform: none !important;
+    }
+    
+    .cards-on-table .player-cards-container.position-top {
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%) scale(0.7);
+    }
+    
+    .cards-on-table .player-cards-container.position-bottom {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) scale(0.7);
+    }
+    
+    .cards-on-table .player-cards-container.position-left {
+        left: -12%;
+        top: 40%;
+        transform: scale(0.65) rotateZ(90deg);
+    }
+    
+    .cards-on-table .player-cards-container.position-right {
+        right: -12%;
+        top: 41%;
+        transform: rotateZ(-90deg) scale(0.65);
+    }
+    
+    /* Cards - Landscape: Smaller */
+    .card {
+        width: 45px;
+        height: 63px;
+        padding: 3px;
+    }
+    
+    .card-value {
+        font-size: 11px;
+    }
+    
+    .card-suit-small {
+        font-size: 9px;
+    }
+    
+    .card-suit-large {
+        font-size: 28px;
+    }
+    
+    /* Player sections - Landscape: Keep outside table */
+    .players-container {
+        position: absolute !important;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: block;
+    }
+    
+    .player-section {
+        position: absolute !important;
+        padding: 10px;
+        min-width: 150px;
+        background: rgba(0, 0, 0, 0.3);
+    }
+    
+    .player-section.position-top {
+        top: -120px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .player-section.position-bottom {
+        bottom: -120px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .player-section.position-left {
+        left: -180px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .player-section.position-right {
+        right: -180px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .player-name {
+        font-size: 1em;
+        margin-bottom: 5px;
+    }
+    
+    .player-result {
+        font-size: 0.85em;
+        padding: 6px 12px;
+    }
+    
+    /* Buttons - Landscape: Smaller */
+    .deal-button {
+        padding: 12px 30px;
+        font-size: 14px;
+        min-height: 44px;
+        width: auto;
+        margin-top: 10px;
+    }
+    
+    /* Winner announcement - Landscape: Smaller */
+    .winner-announcement {
+        font-size: 1.8em;
+        padding: 15px 30px;
+        max-width: 85vw;
+    }
+}
+
+/* Small Mobile Portrait Devices */
+@media (max-width: 480px) and (orientation: portrait) {
+    .table-felt {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .table-title {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+    }
+    
+    .scoreboard {
+        padding: 8px 12px;
+    }
+    
+    .scoreboard-title {
+        font-size: 1em;
+    }
+    
+    .scoreboard-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+    
+    .score-item {
+        padding: 6px 8px;
+        font-size: 0.8em;
+    }
+    
+    /* Cards - Even smaller for very small screens */
+    .card {
+        width: 42px;
+        height: 60px;
+        padding: 3px;
+    }
+    
+    .card-value {
+        font-size: 10px;
+    }
+    
+    .card-suit-small {
+        font-size: 9px;
+    }
+    
+    .card-suit-large {
+        font-size: 28px;
+    }
+    
+    .cards-on-table .player-cards-container {
+        gap: 4px;
+    }
+    
+    .player-section {
+        padding: 10px;
+        gap: 6px;
+    }
+    
+    .player-name {
+        font-size: 1em;
+    }
+    
+    .player-result {
+        font-size: 0.85em;
+        padding: 6px 12px;
+    }
+    
+    .deal-button,
+    .start-button {
+        padding: 12px 15px;
+        font-size: 14px;
+        min-height: 44px;
+    }
+    
+    .winner-announcement {
+        font-size: 1.2em;
+        padding: 12px 20px;
+    }
+    
+    .player-names-input {
+        padding: 15px;
+    }
+    
+    .input-title {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+    
+    .names-form {
+        gap: 12px;
+    }
+}
+
 /* Cards on table styling */
 .cards-on-table {
     position: absolute;
