@@ -55,6 +55,6 @@ Press Deal New Hands to see your cards and discover the winner.
 Enjoy animated cards, glowing winners, and a scoreboard that keeps you coming back for more.
 
 ## 🛠️ Built With
-HTML5 – structure and layout of the table and cards
-CSS3 – styling, animations, card flips, and glowing effects
-JavaScript – game logic: shuffling, dealing, hand evaluation, winner selection
+1. HTML5 – structure and layout of the table and cards.
+2. CSS3 – styling, animations, card flips, and glowing effects.
+3. JavaScript – game logic: shuffling, dealing, hand evaluation, winner selection.
