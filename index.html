@@ -12,10 +12,41 @@
             <div class="table-wood-trim"></div>
             <div class="table-felt">
                 <h1 class="table-title">Poker Hand</h1>
-                <div id="cardContainer"></div>
-                <div id="handResult" class="hand-result"></div>
-                <button id="showHand" class="deal-button">Deal New Hand</button>
+                
+                <!-- Player Names Input -->
+                <div id="playerNamesInput" class="player-names-input">
+                    <h2 class="input-title">Enter Player Names</h2>
+                    <div class="names-form">
+                        <div class="name-input-group">
+                            <label>Top Player:</label>
+                            <input type="text" id="playerTop" placeholder="Player 1" maxlength="15">
+                        </div>
+                        <div class="name-input-group">
+                            <label>Bottom Player:</label>
+                            <input type="text" id="playerBottom" placeholder="Player 2" maxlength="15">
+                        </div>
+                        <div class="name-input-group">
+                            <label>Left Player:</label>
+                            <input type="text" id="playerLeft" placeholder="Player 3" maxlength="15">
+                        </div>
+                        <div class="name-input-group">
+                            <label>Right Player:</label>
+                            <input type="text" id="playerRight" placeholder="Player 4" maxlength="15">
+                        </div>
+                        <button id="startGame" class="start-button">Start Game</button>
+                    </div>
+                </div>
+                
+                <!-- Scoreboard -->
+                <div id="scoreboard" class="scoreboard" style="display: none;">
+                    <h2 class="scoreboard-title">Scoreboard</h2>
+                    <div id="scoreboardContent" class="scoreboard-content"></div>
+                </div>
+                
+                <div id="cardsOnTable" class="cards-on-table"></div>
+                <button id="showHand" class="deal-button" style="display: none;">Deal New Hands</button>
             </div>
+            <div id="playersContainer" class="players-container"></div>
         </div>
     </div>
     <script src="PokerHand.js"></script>
