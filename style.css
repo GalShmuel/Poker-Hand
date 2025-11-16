@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    overflow-x: hidden;
+}
+
+.room-background {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.room-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.poker-table {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    height: auto;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-wood-trim {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #8b4513 0%, #654321 20%, #8b4513 40%, #654321 60%, #8b4513 80%, #654321 100%);
+    border-radius: 50% / 30%;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.8),
+        inset 0 0 40px rgba(0, 0, 0, 0.3),
+        inset 0 10px 30px rgba(255, 255, 255, 0.1);
+    border: 8px solid #5d4037;
+}
+
+.table-felt {
+    position: relative;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    min-height: 560px;
+    background: linear-gradient(135deg, #0d5016 0%, #1a7a2e 25%, #0d5016 50%, #1a7a2e 75%, #0d5016 100%);
+    border-radius: 50% / 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    margin: 20px;
+    box-shadow: 
+        inset 0 0 80px rgba(0, 0, 0, 0.5),
+        inset 0 0 40px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(13, 80, 22, 0.6);
+    border: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.table-felt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px);
+    border-radius: 50% / 30%;
+    pointer-events: none;
+}
+
+.table-title {
+    color: #ffd700;
+    font-size: 2.5em;
+    text-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 215, 0, 0.5),
+        0 0 40px rgba(255, 215, 0, 0.3);
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+
+.hand-container {
+    display: flex;
+    gap: 10px;
+    margin: 10px 20px;
+    justify-content: center;
+}
+
+#cardContainer {
+    display: flex;
+    gap: 15px;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.card {
+    width: 75px;
+    height: 105px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #ffffff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6px;
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.5),
+        0 0 2px rgba(0, 0, 0, 0.3),
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.6),
+        0 0 4px rgba(0, 0, 0, 0.4),
+        inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.card-corner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.card-corner.top-left {
+    align-self: flex-start;
+}
+
+.card-corner.bottom-right {
+    align-self: flex-end;
+    transform: rotate(180deg);
+}
+
+.card-value {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.card-suit-small {
+    font-size: 14px;
+    line-height: 1;
+}
+
+.card-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-suit-large {
+    font-size: 48px;
+    line-height: 1;
+}
+
+.card.red .card-value,
+.card.red .card-suit-small,
+.card.red .card-suit-large {
+    color: #dc3545;
+}
+
+.card.black .card-value,
+.card.black .card-suit-small,
+.card.black .card-suit-large {
+    color: #212529;
+}
+
+.hand-result {
+    color: #ffd700;
+    font-size: 1.8em;
+    display: none !important;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 15px rgba(255, 215, 0, 0.5);
+    margin: 25px 0;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    letter-spacing: 2px;
+}
+
+.deal-button {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #8b7355 0%, #6b5b47 50%, #8b7355 100%);
+    color: #ffd700;
+    border: 3px solid #5d4037;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.5),
+        inset 0 2px 5px rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 1;
+}
+
+.deal-button:hover {
+    background: linear-gradient(135deg, #a08365 0%, #7b6b57 50%, #a08365 100%);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.6),
+        inset 0 2px 5px rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.deal-button:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.5),
+        inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
