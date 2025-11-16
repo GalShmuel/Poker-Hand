@@ -354,6 +354,44 @@ body {
     gap: 15px;
 }
 
+.number-players-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.number-players-group label {
+    color: #ffd700;
+    font-size: 0.9em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.num-players-select {
+    padding: 10px 15px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffd700;
+    font-size: 1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    outline: none;
+    cursor: pointer;
+}
+
+.num-players-select:focus {
+    border-color: rgba(255, 215, 0, 0.8);
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.num-players-select option {
+    background: #1a1a1a;
+    color: #ffd700;
+}
+
 .name-input-group {
     display: flex;
     flex-direction: column;

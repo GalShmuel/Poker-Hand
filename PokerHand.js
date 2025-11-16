@@ -13,20 +13,45 @@ let players = [
     { name: '', position: 'right' }
 ];
 
+// Handle number of players change
+function updatePlayerInputs() {
+    const numPlayers = parseInt(document.getElementById('numPlayersSelect').value);
+    const leftGroup = document.getElementById('playerLeftGroup');
+    const rightGroup = document.getElementById('playerRightGroup');
+    
+    if (numPlayers === 2) {
+        leftGroup.style.display = 'none';
+        rightGroup.style.display = 'none';
+    } else if (numPlayers === 3) {
+        leftGroup.style.display = 'flex';
+        rightGroup.style.display = 'none';
+    } else { // 4 players
+        leftGroup.style.display = 'flex';
+        rightGroup.style.display = 'flex';
+    }
+}
+
 // Initialize game
 function initializeGame() {
+    const numPlayers = parseInt(document.getElementById('numPlayersSelect').value);
     const topInput = document.getElementById('playerTop').value.trim() || 'Player 1';
     const bottomInput = document.getElementById('playerBottom').value.trim() || 'Player 2';
-    const leftInput = document.getElementById('playerLeft').value.trim() || 'Player 3';
-    const rightInput = document.getElementById('playerRight').value.trim() || 'Player 4';
     
-    // Update players array
+    // Build players array based on number of players
     players = [
         { name: topInput, position: 'top' },
-        { name: bottomInput, position: 'bottom' },
-        { name: leftInput, position: 'left' },
-        { name: rightInput, position: 'right' }
+        { name: bottomInput, position: 'bottom' }
     ];
+    
+    if (numPlayers >= 3) {
+        const leftInput = document.getElementById('playerLeft').value.trim() || 'Player 3';
+        players.push({ name: leftInput, position: 'left' });
+    }
+    
+    if (numPlayers === 4) {
+        const rightInput = document.getElementById('playerRight').value.trim() || 'Player 4';
+        players.push({ name: rightInput, position: 'right' });
+    }
     
     // Initialize scores
     players.forEach(player => {
@@ -79,6 +104,13 @@ function updateScoreboard() {
         scoreItem.appendChild(score);
         scoreboardContent.appendChild(scoreItem);
     });
+}
+
+// Update inputs when number of players changes and set initial state
+if (document.getElementById('numPlayersSelect')) {
+    document.getElementById('numPlayersSelect').addEventListener('change', updatePlayerInputs);
+    // Set initial state on page load
+    updatePlayerInputs();
 }
 
 // Start game button event
