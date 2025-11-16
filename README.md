@@ -1,7 +1,12 @@
 # 🎲Poker Hand Game 🎴
-Welcome to the Poker Hand Game – where friends (or foes!) gather around a virtual poker table to deal cards, compete for the top spot, and have a blast doing it! Built with HTML, CSS, and JavaScript, this game is all about fun, strategy, and a little bit of luck.
+Welcome to the Poker Hand Game - where friends (or foes!) gather around a virtual poker table to deal cards, compete for the top spot, and have a blast doing it! Built with HTML, CSS, and JavaScript, this game is all about fun, strategy, and a little bit of luck.
 
 ---
+## Live Demo 🎉
+🌐 **Play Online:** [Try it in your browser!](https://galshmuel.github.io/Poker-Hand/)  
+No downloads, no installations – just pure poker fun at your fingertips!
+
+Open the link in your browser, enter player names, and enjoy dealing cards with smooth animations and an interactive scoreboard!
 
 ## 🌟 Features
 🎮 Enter Player Names: Up to 4 players can join the fun.
@@ -50,6 +55,6 @@ Press Deal New Hands to see your cards and discover the winner.
 Enjoy animated cards, glowing winners, and a scoreboard that keeps you coming back for more.
 
 ## 🛠️ Built With
-HTML5 – structure and layout of the table and cards
-CSS3 – styling, animations, card flips, and glowing effects
-JavaScript – game logic: shuffling, dealing, hand evaluation, winner selection
+1. HTML5 – structure and layout of the table and cards.
+2. CSS3 – styling, animations, card flips, and glowing effects.
+3. JavaScript – game logic: shuffling, dealing, hand evaluation, winner selection.
